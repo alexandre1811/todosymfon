@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ tache.nom }}{% endblock %}
+
+{% block body %}
+    <table class="table" border="1">
+        <tr>
+            <th>Nom</th>
+            <th>Deadline</th>
+            <th>Etat</th>
+        </tr>
+        <tbody>
+        <tr>
+            <td>{{ tache.nom }}</td>
+            <td> </td>
+            <td>{{ tache.etat }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <h2>Modifier la tache</h2>
+    {{ form(form_edit) }}
+
+{% endblock %}

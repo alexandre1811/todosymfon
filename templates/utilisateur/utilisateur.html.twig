@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ utilisateur.nom }}{{ utilisateur.prenom }}{% endblock %}
+
+{% block body %}
+    <table class="table" border="1">
+        <tr>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Email</th>
+        <th>Tache</th>
+        </tr>
+        <tbody>
+            <tr>
+                <td>{{ utilisateur.nom }}</td>
+                <td> {{ utilisateur.prenom }}</td>
+                <td>{{ utilisateur.email }}</td>
+                <td>{{ utilisateur.tache }}</td>
+            </tr>
+        </tbody>
+    </table>
+<h2>Modifier le produit</h2>
+{{ form(form_edit) }}
+
+{% endblock %}
