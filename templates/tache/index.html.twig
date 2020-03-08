@@ -17,15 +17,17 @@
             </thead>
             <tbody>
             {% for tache in taches %}
-                <tr>
-                    <td>{{ tache.nom }}</td>
-                    <td>{{ tache.deadline|date("d/m/Y") }}</td>
-                    <td>{{ tache.etat }}</td>
-                    <td></td>
-                    <td><a class="btn btn-outline-primary" href="{{ path('une_tache',{'id':tache.id}) }}">Modifier</a>
-                        <a class="btn btn-outline-danger" href="{{ path('delete_tache', {'id': tache.id}) }}">Supprimer</a>
-                    </td>
-                </tr>
+                {% for utilisateur in utilisateurs %}
+                    <tr>
+                        <td>{{ tache.nom }}</td>
+                        <td>{{ tache.deadline|date("d/m/Y h:m:s") }}</td>
+                        <td>{{ tache.etat }}</td>
+                        <td>{{ utilisateur.nom }}</td>
+                        <td><a class="btn btn-outline-primary" href="{{ path('une_tache',{'id':tache.id}) }}">Modifier</a>
+                            <a class="btn btn-outline-danger" href="{{ path('delete_tache', {'id': tache.id}) }}">Supprimer</a>
+                        </td>
+                    </tr>
+                {%  endfor %}
             {%  endfor %}
             </tbody>
         </table>

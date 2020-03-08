@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Tache;
+use App\Entity\Utilisateur;
 use App\Form\TacheType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,10 +25,12 @@ class TacheController extends AbstractController
             $pdo->flush();
         }
         $taches = $pdo->getRepository(Tache::class)->findAll();
+        $utilisateurs = $pdo->getRepository(Utilisateur::class)->findAll();
 
 
         return $this->render('tache/index.html.twig', [
             'taches' => $taches,
+            'utilisateurs'=>$utilisateurs,
             'form_ajout' => $form->createView(),
         ]);
     }
@@ -46,8 +49,12 @@ class TacheController extends AbstractController
                 $pdo->flush();
                 $this->addFlash("success", "Tache modifier");
             }
+            $pdo = $this->getDoctrine()->getManager();
+            $utilisateur = $pdo->getRepository(Utilisateur::class)->findAll();
+
             return $this->render('tache/tache.html.twig', [
                'tache' => $tache,
+               'utilisateurs'=>$utilisateur,
                'form_edit'=>$form->createView()
             ]);
         }
@@ -74,5 +81,8 @@ class TacheController extends AbstractController
 
         return $this->redirectToRoute('tache');
     }
+
+
+
 
 }

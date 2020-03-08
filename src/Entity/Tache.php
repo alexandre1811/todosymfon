@@ -34,7 +34,8 @@ class Tache
     private $etat;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Utilisateur", mappedBy="tache",cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="App\Entity\Utilisateur", mappedBy="tache")
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
     private $utilisateur;
 

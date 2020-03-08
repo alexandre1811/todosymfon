@@ -22,7 +22,7 @@
                     <td>{{ utilisateur.nom }}</td>
                     <td> {{ utilisateur.prenom }}</td>
                     <td>{{ utilisateur.email }}</td>
-                    <td>{{ utilisateur.inscription|date("d/m/Y") }}</td>
+                    <td>{{ utilisateur.inscription|date("d/m/Y h:m:s") }}</td>
                     <td>{{ utilisateur.tache }}</td>
 
                     <td><a class="btn btn-outline-primary" href="{{ path('un_utilisateur',{'id':utilisateur.id}) }}">Modifier</a>

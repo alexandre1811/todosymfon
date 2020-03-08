@@ -11,12 +11,14 @@
             <th>Utilisateur</th>
         </tr>
         <tbody>
+        {% for utilisateur in utilisateurs %}
         <tr>
             <td>{{ tache.nom }}</td>
-            <td>{{ tache.deadline|date("d/m/Y") }}</td>
+            <td>{{ tache.deadline|date("d/m/Y h:m:s") }}</td>
             <td>{{ tache.etat }}</td>
-            <td></td>
+            <td>{{ utilisateur.nom }}</td>
         </tr>
+        {% endfor %}
         </tbody>
     </table>
     <h2>Modifier la tache</h2>
