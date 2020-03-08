@@ -16,6 +16,7 @@ class TacheType extends AbstractType
             ->add('nom')
             ->add('deadline')
             ->add('etat')
+            ->add('utilisateur')
             ->add('sauvgarder', SubmitType::class)
         ;
     }

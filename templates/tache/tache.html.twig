@@ -3,17 +3,19 @@
 {% block title %}{{ tache.nom }}{% endblock %}
 
 {% block body %}
-    <table class="table" border="1">
+    <table class="table table-hover">
         <tr>
             <th>Nom</th>
             <th>Deadline</th>
             <th>Etat</th>
+            <th>Utilisateur</th>
         </tr>
         <tbody>
         <tr>
             <td>{{ tache.nom }}</td>
-            <td> </td>
+            <td>{{ tache.deadline|date("d/m/Y") }}</td>
             <td>{{ tache.etat }}</td>
+            <td></td>
         </tr>
         </tbody>
     </table>

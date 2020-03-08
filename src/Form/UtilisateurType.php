@@ -18,7 +18,6 @@ class UtilisateurType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('email')
-
             ->add('tache')
             ->add('sauvgarder', SubmitType::class)
         ;

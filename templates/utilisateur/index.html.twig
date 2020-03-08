@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Liste d'Utilisateur</h1>
     {% if utilisateurs is not empty %}
-        <table class="table" border="1">
+        <table class="table table-hover" >
             <thead>
             <tr>
                 <th>Nom</th>
@@ -18,22 +18,20 @@
             </thead>
             <tbody>
             {% for utilisateur in utilisateurs %}
-                <tr>
+                <tr class="table">
                     <td>{{ utilisateur.nom }}</td>
                     <td> {{ utilisateur.prenom }}</td>
                     <td>{{ utilisateur.email }}</td>
-                    <td>{{ utilisateur.inscription }}</td>
+                    <td>{{ utilisateur.inscription|date("d/m/Y") }}</td>
                     <td>{{ utilisateur.tache }}</td>
 
-                    <td><a class="btn btn-primary" href="{{ path('un_utilisateur',{'id':utilisateur.id}) }}">Modifier</a>
-                        <a class="btn btn-danger" href="{{ path('delete_utilisateur', {'id': utilisateur.id}) }}">Supprimer</a>
+                    <td><a class="btn btn-outline-primary" href="{{ path('un_utilisateur',{'id':utilisateur.id}) }}">Modifier</a>
+                        <a class="btn btn-outline-danger" href="{{ path('delete_utilisateur', {'id': utilisateur.id}) }}">Supprimer</a>
                     </td>
                 </tr>
             {%  endfor %}
             </tbody>
         </table>
-
-
 
 
     {% else %}
